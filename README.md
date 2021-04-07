@@ -50,8 +50,6 @@
 
 <h4 align="center">Here is a screenshot of the UI</h4>
 
-[![img1](./assest/fil2.png)](https://angular.io/)
-[![img1](./assest/fil1.png)](https://angular.io/)
-<img src="./assest/fil2.png" alt="App Screenshots" height="300" width="600">
-<img src="./assest/fil1.png" alt="App Screenshots" height="300" width="600">
-<img src="./assest/fil3.png" alt="App Screenshots" height="300" width="600">
+<img src="./assest/fil2.png" alt="App Screenshots" height="150" width="400">
+<img src="./assest/fil1.png" alt="App Screenshots" height="150" width="400">
+<img src="./assest/fil3.png" alt="App Screenshots" height="150" width="400">

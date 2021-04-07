@@ -28,13 +28,17 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    FileUploaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

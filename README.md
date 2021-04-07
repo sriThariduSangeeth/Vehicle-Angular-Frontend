@@ -22,13 +22,27 @@
 
 [![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular 10" height="25">
-<img src="https://jwt.io/img/pic_logo.svg" alt="Angular 10" height="25">
-  <a>
-    <img src="https://img.shields.io/badge/Build-Passed-green" alt="Build: Passed" height="18">
-  </a>
- <a>
+[![dev](https://jwt.io/img/pic_logo.svg)](https://angular.io/)
+[![Build](https://img.shields.io/badge/Build-Passed-green)](https://angular.io/)
+
   <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" alt="Build: Passed" height="18">
  </a>
 
 
 <h4 align="center">Here is a screenshot of the Login page</h4>
+
+<P> This window use for log into application. Before upload CSV file you need to login to application. When you enter correct user email and password application will get JWT valid token. This Token will save in web browser local storage. </P>
+
+<h4 align="center">Here is a screenshot of the UI</h4>
+<!-- image -->
+<img src="./assest/login.png"
+alt="App Screenshots" height="200" width="680">
+
+> user this credentials for login.
+
+| User Email    | Password      | 	 |
+| ------------- |:-------------:| -----: |
+| test@mail.com | test123	| Tested |
+| dev@mail.com 	| dev123	| Tested |
+
+

@@ -5,7 +5,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    background-image: url('../../assets/exway1.jpg');
+    background-image: url('../../assets/exway3.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,6 +16,7 @@ mat-card {
     width: 30%;
     margin: 10% auto;
     border-radius: 8px;
+    background: #4891a0;
     box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.692);
 }
 

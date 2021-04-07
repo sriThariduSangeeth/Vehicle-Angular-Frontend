@@ -10,16 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthGuard implements CanActivate {
 
   private state: boolean = true;
-  constructor(private authService: AuthService, private router: Router , private activeRoute : ActivatedRoute) { }
-  
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-      if (this.authService.isLoggedIn()) {
-        return true;
-      }
-        this.router.navigate(['login'], {relativeTo: this.activeRoute});
-        return false;
+  constructor(private authService: AuthService, private router: Router, private activeRoute: ActivatedRoute) { }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.authService.isLoggedIn()) {
+      return true;
+    }
+    this.router.navigate(['login'], { relativeTo: this.activeRoute });
+    return false;
   }
 
 
-  
+
 }

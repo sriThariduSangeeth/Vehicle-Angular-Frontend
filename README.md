@@ -23,8 +23,9 @@
 [![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular 10" height="27">
 <img src="https://jwt.io/img/pic_logo.svg" alt="jet" height="27">
-<img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" alt="Passed" height="18">
 [![Build](https://img.shields.io/badge/Build-Passed-green)](https://angular.io/)
+
+<img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" alt="Passed" height="28">
 
 <h4 align="center">Here is a screenshot of the Login page</h4>
 
@@ -32,8 +33,10 @@
 
 <h4 align="center">Here is a screenshot of the UI</h4>
 <!-- image -->
+<a align="center">
 <img src="./assest/login.png"
-alt="App Screenshots" height="200" width="680">
+alt="App Screenshots" height="300" width="600">
+</a>
 
 > user this credentials for login.
 

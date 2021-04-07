@@ -33,10 +33,9 @@
 
 <h4 align="center">Here is a screenshot of the UI</h4>
 <!-- image -->
-<a align="center">
-<img src="./assest/login.png"
-alt="App Screenshots" height="300" width="600">
-</a>
+<p align="center">
+  <img src="./assest/login.png" alt="App Screenshots" height="300" width="600">
+</p>
 
 > user this credentials for login.
 

@@ -50,12 +50,7 @@
 
 <h4 align="center">Here is a screenshot of the UI</h4>
 
-<p float="left" align="center">
-<img src="./assest/fil2.png" alt="App Screenshots" height="150" width="250">
-<img src="./assest/fil1.png" alt="App Screenshots" height="150" width="250">
-<img src="./assest/fil3.png" alt="App Screenshots" height="150" width="250">
-</p>
+| selected file            |  Select file               | uploadimg file
+:-------------------------:|:--------------------------:|:--------------------------:
+![](./assest/fil2.png)     |  ![](./assest/fil1.png)    | ![](./assest/fil3.png)
 
-| Solarized dark           |  Solarized Ocean           |
-:-------------------------:|:--------------------------:|
-![](./assest/fil2.png)   |  ![](./assest/fil1.png) |

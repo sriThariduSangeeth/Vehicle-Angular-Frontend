@@ -50,7 +50,7 @@
 
 <h4 align="center">Here is a screenshot of the UI</h4>
 
-| selected file            |  Select file               | uploadimg file
+| selected file            |  Selecting file               | uploading file
 :-------------------------:|:--------------------------:|:--------------------------:
 ![](./assest/fil2.png)     |  ![](./assest/fil1.png)    | ![](./assest/fil3.png)
 

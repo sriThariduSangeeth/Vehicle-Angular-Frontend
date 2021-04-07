@@ -20,6 +20,7 @@
     <li>All CRUD operation has implemented</li>
 </ul>
 
+[![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular 10" height="25">
 <img src="https://jwt.io/img/pic_logo.svg" alt="Angular 10" height="25">
   <a>

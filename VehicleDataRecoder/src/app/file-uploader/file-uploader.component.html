@@ -1,1 +1,61 @@
-<p>file-uploader works!</p>
+<div class="grid-container">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <mat-card class="dashboard-card">
+            <mat-card-header>
+                <mat-icon>face</mat-icon>
+                <mat-card-title>CSV data file uploader</mat-card-title>
+
+                <mat-card-subtitle>Registration</mat-card-subtitle>
+                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                    <div fxLayoutGap="20px">
+                        <button mat-raised-button (click)="submit()" color="primary" type="submit">Submit</button>
+                    </div>
+
+                </div>
+            </mat-card-header>
+
+            <mat-card-content class="dashboard-card-content">
+                <div fxFlex fxLayout="row" fxLayoutGap="20" fxLayoutAlign="space-around center">
+                    <div fxFlex="40%" class="file-loader file-selector">
+                        <div class="container row">
+                            <!-- <div class="col-md-6">
+                                    <input type="file" #fileUpload (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" id="fileUpload" name="fileUpload" multiple="multiple">
+        
+                                </div> -->
+
+                            <input type="file" #fileUpload id="fileUpload" multiple (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                            <img src="../../assets/ic-upload-file.svg" alt="">
+                            <h3>Drag and drop file here</h3>
+                            <h3>or</h3>
+                            <label for="fileDropRef">Browse for file</label>
+                        </div>
+                    </div>
+                    <div fxFlex="60%" class="file-loader">
+
+                        <div class="files-list">
+                            <div class="single-file" *ngFor="let file of files; let i = index">
+                                <img src="../../assets/ic-file.svg" width="35px" alt="file">
+                                <div class="info">
+                                    <h4 class="name">
+                                        {{ file?.name }}
+                                    </h4>
+                                    <p class="size">
+                                        {{ formatBytes(file?.size) }}
+                                    </p>
+                                    <app-progress [progress]="file?.progress"></app-progress>
+                                </div>
+                                <img src="../../assets/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </mat-card-content>
+
+
+        </mat-card>
+    </div>
+</div>

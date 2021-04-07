@@ -44,4 +44,14 @@
 | test@mail.com | test123	| Tested |
 | dev@mail.com 	| dev123	| Tested |
 
+<h4 align="center">Here is a screenshot of the CSV files upload page</h4>
 
+<P> This window use for upload .csv and .xlsx files. Before upload CSV file you need to select files from your local machine. You can select multiple files also. You can remove unwanted file that you have already selected. when you press submit all file will save in DataBase (PostgressQL). </P>
+
+<h4 align="center">Here is a screenshot of the UI</h4>
+
+[![img1](./assest/fil2.png)](https://angular.io/)
+[![img1](./assest/fil1.png)](https://angular.io/)
+<img src="./assest/fil2.png" alt="App Screenshots" height="300" width="600">
+<img src="./assest/fil1.png" alt="App Screenshots" height="300" width="600">
+<img src="./assest/fil3.png" alt="App Screenshots" height="300" width="600">

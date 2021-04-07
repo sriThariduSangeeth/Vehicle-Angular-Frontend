@@ -55,3 +55,7 @@
 <img src="./assest/fil1.png" alt="App Screenshots" height="150" width="250">
 <img src="./assest/fil3.png" alt="App Screenshots" height="150" width="250">
 </p>
+
+| Solarized dark           |  Solarized Ocean           |
+:-------------------------:|:--------------------------:|
+![](./assest/fil2.png)   |  ![](./assest/fil1.png) |

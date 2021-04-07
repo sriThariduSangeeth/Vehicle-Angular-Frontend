@@ -1,0 +1,129 @@
+<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+        <mat-toolbar color="primary">
+
+            <div class="top-toolbar">
+                <a href="#" class="pl-0"><img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"></a>
+            </div>
+
+        </mat-toolbar>
+
+
+        <mat-nav-list>
+
+            <div class="nav-img">
+                <div mat-card-avatar class="header-image"></div>
+                <div class="pro-name">
+                    Kanishka
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <a mat-list-item routerLink="home" class="nav-item" (click)="hidden = true">
+                <mat-icon aria-hidden="false">dashboard</mat-icon>
+                <span style="padding: 10%;"></span> Dashboard
+            </a>
+            <!-- (click)="hidden = true; drawer.close()" -->
+            <a mat-list-item routerLink="counter" class="nav-item" (click)="hidden = true">
+                <mat-icon aria-hidden="false">record_voice_over</mat-icon>
+                <span style="padding: 10%;"></span> Highway Counter
+            </a>
+            <a mat-list-item routerLink="statics" class="nav-item" (click)="hidden = true">
+                <mat-icon aria-hidden="false">equalizer</mat-icon>
+                <span style="padding: 10%;"></span> Highway Statics
+            </a>
+            <a mat-list-item class="nav-item" (click)="hidden = !hidden">
+                <mat-icon aria-hidden="false">how_to_reg</mat-icon>
+                <span style="padding: 10%;"></span> Register
+                <span style="flex:auto"></span>
+                <mat-icon *ngIf="hidden">expand_less</mat-icon>
+                <mat-icon *ngIf="!hidden">expand_more</mat-icon>
+            </a>
+            <mat-divider></mat-divider>
+            <a mat-list-item [hidden]="hidden" routerLink="register/driver" [state]="{ id:1 , name:'Angular'}">
+                <span style="padding: 5%;"></span>
+                <mat-icon aria-hidden="false">supervisor_account</mat-icon>
+                <span style="padding: 10%;"></span> Driver Register
+            </a>
+            <a mat-list-item [hidden]="hidden" routerLink="register/vehicle" [state]="{ id:2 , name:'Angular'}">
+                <span style="padding: 5%;"></span>
+                <mat-icon aria-hidden="false">airport_shuttle</mat-icon>
+                <span style="padding: 10%;"></span> Vehicle Register
+            </a>
+            <!-- <a mat-list-item class="nav-item" [matMenuTriggerFor]="animals">
+        <mat-icon aria-hidden="false">how_to_reg</mat-icon>
+        <span style="padding: 10%;"></span>
+        Register
+      </a> -->
+            <!-- <mat-menu #animals="matMenu" class="nav-item">
+        <button mat-menu-item routerLink="/register" class="nav-item">Driver Register</button>
+        <button mat-menu-item routerLink="/register" class="nav-item">Vehicle Register</button>
+      </mat-menu> -->
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenavcon">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+                <div class="e-albania">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id=orbit>
+            <circle fill=none stroke="#9bd3e0" stroke-width="5" cx=50 cy=50 r="40" />
+            <circle fill=#EB1E51 cx=50 cy=50 r="24" />
+            <text x="50%" y="50%" dominant-baseline="middle" width="34" text-anchor="middle" fill="#fff"
+              style="font-size:150%">H</text>
+          </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id=electron>
+            <circle fill=#EB1E51 cx=10 cy=90 r="10" />
+          </svg>
+                </div>
+
+                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                    <ul fxLayout="row" fxLayoutGap="20px">
+                        <li>
+                            <div class="example-button-container">
+                                <button mat-icon-button aria-label="Example icon button with a home icon" (click)="testClick()">
+                  <mat-icon>email</mat-icon>
+                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="example-button-container">
+                                <button mat-icon-button aria-label="Example icon button with a home icon">
+                  <mat-icon>add_alert</mat-icon>
+                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <mat-slide-toggle [(ngModel)]="isDarkTheme">
+                                <mat-icon>nights_stay</mat-icon>
+                            </mat-slide-toggle>
+                        </li>
+                        <li>
+                            <div class="example-button-container">
+                                <button mat-mini-fab [matMenuTriggerFor]="logOut" aria-label="Example icon button with a home icon">
+                  <mat-icon>face</mat-icon>
+                </button>
+                            </div>
+
+                            <mat-menu #logOut="matMenu" class="nav-item">
+                                <button mat-menu-item class="nav-item">Settings</button>
+                                <button mat-menu-item routerLink="/login" class="nav-item">Logout</button>
+                            </mat-menu>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <!-- Add Content Here -->
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FileUploadService } from '../services/file.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -14,16 +15,25 @@ export class FileUploaderComponent implements OnInit {
   url: string | any = "";
   files: any[] = [];
 
-  constructor() { }
+  constructor(private fileUploadService: FileUploadService,) { }
 
   ngOnInit(): void {
   }
 
   submit(): void {
-
-  }
-
-  public onFileDroped($event: any) {
+    if (this.files != null) {
+      const formData = new FormData();
+      formData.append('uploadcsv', this.files[0], this.files[0].name);
+      this.fileUploadService.upload(formData).subscribe(
+        rsp => {
+          if (rsp) {
+            this.message = 'Image uploaded successfully';
+          }
+        },
+        error => {
+          alert(error.error.data);
+        });
+    }
 
   }
 

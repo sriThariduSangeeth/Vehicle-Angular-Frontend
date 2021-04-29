@@ -1,12 +1,3 @@
-table {
-    width: 100%;
-}
-
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
-}
-
 .grid-container {
     margin: 20px;
 }
@@ -17,11 +8,6 @@ table {
     left: 15px;
     right: 15px;
     bottom: 15px;
-}
-
-.card-table-view {
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .more-button {
@@ -65,4 +51,20 @@ table {
 
 .form-field {
     width: 400px;
+}
+
+.profile-picture {
+    position: relative;
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    border-radius: 1em;
+}
+
+.profile-picture img {
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+    border-radius: 1em;
 }

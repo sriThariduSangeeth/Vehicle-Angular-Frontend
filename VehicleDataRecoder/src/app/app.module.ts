@@ -31,6 +31,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './shared/progress/progress.component';
+import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,7 @@ import { ProgressComponent } from './shared/progress/progress.component';
     FileUploaderComponent,
     DashboardComponent,
     ProgressComponent,
+    VehicleAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,10 +74,13 @@ import { ProgressComponent } from './shared/progress/progress.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-
-
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

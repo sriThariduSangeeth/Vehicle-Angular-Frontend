@@ -1,1 +1,80 @@
-<p>dashboard works!</p>
+<div class="grid-container">
+
+    <mat-card class="dashboard-card mat-app-background">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px" class="stats-cards">
+            <div class="card-table-view">
+                <table mat-table [dataSource]="dataSource">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef> First Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastName">
+                        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="carMake">
+                        <th mat-header-cell *matHeaderCellDef> Car Make </th>
+                        <td mat-cell *matCellDef="let element"> {{element.carMake}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="carModel">
+                        <th mat-header-cell *matHeaderCellDef> Car Model </th>
+                        <td mat-cell *matCellDef="let element"> {{element.carModel}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="vinNumber">
+                        <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+                        <td mat-cell *matCellDef="let element"> {{element.vinNumber}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="manufacturedDate">
+                        <th mat-header-cell *matHeaderCellDef> Vehicle Maf. Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.manufacturedDate}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="primary" (click)="editVehicle(element)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="warn" (click)="deleteVehicle(element)">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="">
+                <mat-paginator [pageSizeOptions]="[10, 20, 30 , 40 , 50 , 80]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+
+
+
+
+    </mat-card>
+
+</div>

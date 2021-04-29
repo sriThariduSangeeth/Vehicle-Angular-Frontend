@@ -22,6 +22,7 @@
                 <mat-icon aria-hidden="false">dashboard</mat-icon>
                 <span style="padding: 10%;"></span> Dashboard
             </a>
+            <mat-divider></mat-divider>
             <!-- (click)="hidden = true; drawer.close()" -->
             <a mat-list-item routerLink="file" class="nav-item" (click)="hidden = true">
                 <mat-icon aria-hidden="false">record_voice_over</mat-icon>
@@ -29,25 +30,14 @@
             </a>
 
             <mat-divider></mat-divider>
-            <a mat-list-item [hidden]="hidden" routerLink="register/driver" [state]="{ id:1 , name:'Angular'}">
-                <span style="padding: 5%;"></span>
-                <mat-icon aria-hidden="false">supervisor_account</mat-icon>
-                <span style="padding: 10%;"></span> Driver Register
+
+            <a mat-list-item routerLink="add" class="nav-item" (click)="hidden = true">
+                <mat-icon aria-hidden="false">drive_eta</mat-icon>
+                <span style="padding: 10%;"></span> Vehicle Add
             </a>
-            <a mat-list-item [hidden]="hidden" routerLink="register/vehicle" [state]="{ id:2 , name:'Angular'}">
-                <span style="padding: 5%;"></span>
-                <mat-icon aria-hidden="false">airport_shuttle</mat-icon>
-                <span style="padding: 10%;"></span> Vehicle Register
-            </a>
-            <!-- <a mat-list-item class="nav-item" [matMenuTriggerFor]="animals">
-        <mat-icon aria-hidden="false">how_to_reg</mat-icon>
-        <span style="padding: 10%;"></span>
-        Register
-      </a> -->
-            <!-- <mat-menu #animals="matMenu" class="nav-item">
-        <button mat-menu-item routerLink="/register" class="nav-item">Driver Register</button>
-        <button mat-menu-item routerLink="/register" class="nav-item">Vehicle Register</button>
-      </mat-menu> -->
+
+            <mat-divider></mat-divider>
+
         </mat-nav-list>
     </mat-sidenav>
 

@@ -1,0 +1,109 @@
+<div class="grid-container">
+    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+        <mat-card class="dashboard-card mat-app-background">
+
+            <mat-card-header>
+                <mat-icon>drive_eta</mat-icon>
+                <mat-card-title>Add New Vehicle</mat-card-title>
+
+                <mat-card-subtitle>create new vehicle field</mat-card-subtitle>
+                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                    <div fxLayoutGap="20px">
+                        <button mat-raised-button (click)="submit()" color="primary" type="submit">Submit</button>
+                    </div>
+
+                </div>
+            </mat-card-header>
+
+            <mat-card-content class="dashboard-card-content" color="primary">
+                <!-- <cdk-virtual-scroll-viewport > -->
+                <div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="20px" class="stats-cards">
+                    <div class="" fxFlex="1 1 auto">
+                        <p>
+                            <mat-form-field class="form-field" appearance="standard">
+                                <mat-label>First Name</mat-label>
+                                <input matInput required placeholder="Title" [(ngModel)]="vfname">
+                                <button mat-button *ngIf="vfname" matSuffix mat-icon-button aria-label="Clear" (click)="vfname=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vfname">portrait</mat-icon>
+                                <mat-hint>Devide</mat-hint>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field class="form-field" appearance="standard">
+                                <mat-label>Last Name</mat-label>
+                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
+                                <input matInput required placeholder="https://www." [(ngModel)]="vlname">
+                                <button mat-button *ngIf="vlname" matSuffix mat-icon-button aria-label="Clear" (click)="vlname=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vlname">portrait</mat-icon>
+                                <mat-hint>Gutter</mat-hint>
+                            </mat-form-field>
+                        </p>
+                        ---
+                        <p>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Email Adress</mat-label>
+                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
+                                <input matInput required placeholder="https://www." [(ngModel)]="vmail">
+                                <button mat-button *ngIf="vmail" matSuffix mat-icon-button aria-label="Clear" (click)="vmail=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vmail">share</mat-icon>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Vehicle Make</mat-label>
+                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
+                                <input matInput required placeholder="https://www." [(ngModel)]="vmake">
+                                <button mat-button *ngIf="vmake" matSuffix mat-icon-button aria-label="Clear" (click)="vmake=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vmake">email</mat-icon>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Vehicle Model</mat-label>
+                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
+                                <input matInput required placeholder="https://www." [(ngModel)]="vmodel">
+                                <button mat-button *ngIf="vmodel" matSuffix mat-icon-button aria-label="Clear" (click)="vmodel=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vmodel">airport_shuttle</mat-icon>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Vehicle Register Number</mat-label>
+                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
+                                <input matInput required placeholder="https://www." [(ngModel)]="vnumber">
+                                <button mat-button *ngIf="vnumber" matSuffix mat-icon-button aria-label="Clear" (click)="vnumber=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-icon matSuffix *ngIf="!vnumber">garage</mat-icon>
+                            </mat-form-field>
+                        </p>
+                        ---
+                        <p>
+                            <mat-form-field class="form-field" color="primary" appearance="fill">
+                                <mat-label>Vehicle Manufactured Date</mat-label>
+                                <input matInput required [matDatepicker]="psd" [(ngModel)]="pstartdate">
+                                <mat-datepicker-toggle matSuffix [for]="psd"></mat-datepicker-toggle>
+                                <mat-datepicker #psd color="primary"></mat-datepicker>
+                                <mat-hint>YYYY-MM-DD</mat-hint>
+                            </mat-form-field>
+                        </p>
+                    </div>
+
+                </div>
+
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+</div>

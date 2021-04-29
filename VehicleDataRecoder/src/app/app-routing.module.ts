@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'file', component: FileUploaderComponent, canActivate: [AuthGuard] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'add', component: VehicleAddComponent, canActivate: [AuthGuard] },
     ]
   },
 ];

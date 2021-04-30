@@ -36,6 +36,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditDeletePopupComponent } from './shared/popup/edit-delete-popup/edit-delete-popup.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     DashboardComponent,
     ProgressComponent,
     VehicleAddComponent,
+    EditDeletePopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatNativeDateModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
   ],
   providers: [
   ],

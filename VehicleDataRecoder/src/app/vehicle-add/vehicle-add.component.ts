@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file.service';
 import * as moment from 'moment';
-import ApolloClient, { gql } from 'apollo-boost';
-import { GET_ALL_VEHICLE, SAVE_NEW_VEHICLE } from '../model/vehicle';
 
 @Component({
   selector: 'app-vehicle-add',
@@ -29,19 +27,17 @@ export class VehicleAddComponent implements OnInit {
   vnumber = '';
   pstartdate!: string;
 
-  client = new ApolloClient({
-    uri: 'http://localhost:3000/graphql'
-  });
 
 
 
   emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
   constructor(private fileUploadService: FileUploadService,
-    private router: Router, private formBuilder: FormBuilder,) { }
+    private router: Router, private formBuilder: FormBuilder) { }
 
 
   ngOnInit(): void {
+
 
     // const res = this.client.mutate({
     //   mutation: SAVE_NEW_VEHICLE,

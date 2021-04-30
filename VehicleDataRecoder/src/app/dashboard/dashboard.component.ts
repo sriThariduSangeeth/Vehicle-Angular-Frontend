@@ -4,7 +4,9 @@ import { FileUploadService } from '../services/file.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
-import { merge, Observable, of as observableOf } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { VehicleAddComponent } from '../vehicle-add/vehicle-add.component';
+import { EditDeletePopupComponent } from '../shared/popup/edit-delete-popup/edit-delete-popup.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +16,7 @@ import { merge, Observable, of as observableOf } from 'rxjs';
 export class DashboardComponent implements OnInit, AfterViewInit {
 
   public vehicles: Vehicle[] = [];
-  constructor(private fileUploadService: FileUploadService) { }
+  constructor(private fileUploadService: FileUploadService, public dialog: MatDialog) { }
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email',
     'carMake', 'carModel', 'vinNumber', 'manufacturedDate', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Vehicle>();
@@ -47,7 +49,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   editVehicle(res: Vehicle) {
-    console.log(res);
+    const dialogRef = this.dialog.open(EditDeletePopupComponent, {
+      width: '70vw',
+      height: '70vh',
+      data: res
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   deleteVehicle(res: Vehicle) {

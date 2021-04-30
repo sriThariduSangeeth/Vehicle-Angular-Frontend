@@ -1,0 +1,35 @@
+.grid-container {
+    margin: 20px;
+}
+
+
+/* .dashboard-card {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+} */
+
+
+/* .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.dashboard-card-content {
+    text-align: center;
+    top: 80px;
+    left: 15px;
+    right: 15px;
+    bottom: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    border: 0.5px solid #000
+}
+
+.dashboard-card-content .stats-cards {
+    margin-top: 35px;
+} */

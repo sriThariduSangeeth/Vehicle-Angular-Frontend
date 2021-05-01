@@ -63,4 +63,5 @@
 
 | Dashboard View            |  Edit Vehicle             |  Delete Vehicle         |    Add New Vehicle           |
 :-------------------------:|:--------------------------:|:--------------------------:|:-------------------------:|
-![](./assest/crud1.png)     |  <ul><li>[](./assest/edit1.png)</li> <li>[](./assest/edit2.png) </li></ul>   | ![](./assest/delete1.png) |![](./assest/delete1.png)   |
+![](./assest/crud1.png)     |  [](./assest/edit1.png)  | ![](./assest/delete1.png) |![](./assest/add1.png)   |
+|                           | [](./assest/edit2.png)   |                            |                           |

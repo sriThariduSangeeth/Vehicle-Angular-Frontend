@@ -44,7 +44,7 @@
 | test@mail.com | test123	| Tested |
 | dev@mail.com 	| dev123	| Tested |
 
-**About CSV files upload page**
+> About CSV files upload page
 
 <P> This window use for upload .csv and .xlsx files. Before upload CSV file you need to select files from your local machine. You can select multiple files also. You can remove unwanted file that you have already selected. when you press submit all file will save in DataBase (PostgressQL). </P>
 
@@ -55,7 +55,7 @@
 ![](./assest/fil2.png)     |  ![](./assest/fil1.png)    | ![](./assest/fil3.png)
 
 
-**About Dashboard View **
+> About Dashboard View and CRUD UI
 
 <p> This componet use for display every records in DB. after upload .CVS into database this view will show data. as well as user can <b>Edit</b> and <b> Delete</b> each and every records one by one.  </p>
 

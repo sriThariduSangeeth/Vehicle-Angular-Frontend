@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export interface Vehicle {
+export interface IVehicle {
 
     id: number;
     firstName: string;
@@ -30,6 +30,36 @@ export interface Vehicle {
     // }
 }
 
+export class Vehicle implements IVehicle {
+
+    id!: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    carMake: string;
+    carModel: string;
+    vinNumber: string;
+    manufacturedDate: string;
+
+    constructor(
+        firstName: string,
+        lastName: string,
+        email: string,
+        carMake: string,
+        carModel: string,
+        vinNumber: string,
+        manufacturedDate: string) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.carMake = carMake;
+        this.carModel = carModel;
+        this.vinNumber = vinNumber;
+        this.manufacturedDate = manufacturedDate;
+    }
+}
+
 export const GET_ALL_VEHICLE = gql`
 query{
   vehicles{
@@ -45,7 +75,7 @@ query{
 }
 `;
 
-export const SAVE_NEW_VEHICLE = gql`
+export const ADD_NEW_VEHICLE = gql`
 mutation(
     $firstName: String!
 	$lastName: String!
@@ -53,7 +83,7 @@ mutation(
 	$carMake: String!
 	$carModel: String!
 	$vinNumber: String!
-	$manufacturedDate: Date!
+	$manufacture: String!
 ){
     createVehicle(createVehicleData:{
       firstName:$firstName,
@@ -62,8 +92,56 @@ mutation(
       carModel:$carMake,
       carMake:$carModel,
       vinNumber:$vinNumber,
-      manufacturedDate:$manufacturedDate
+      manufacture:$manufacture
     }){
+        id
+        firstName
+        lastName
+        email
+        carMake
+        carModel
+        vinNumber
+        manufacturedDate
+    }
+  }
+`;
+
+export const UPDATE_VEHICLE = gql`
+mutation(
+    $id: Int!
+    $firstName: String!
+	$lastName: String!
+	$email: String!
+	$carMake: String!
+	$carModel: String!
+	$vinNumber: String!
+	$manufacturedDate: String!
+){
+    updateVehicle(updateVehicleData:{
+        id:$id
+        firstName:$firstName,
+        lastName:$lastName,
+        email:$email,
+        carModel:$carMake,
+        carMake:$carModel,
+        vinNumber:$vinNumber,
+        manufacturedDate:$manufacturedDate
+    }){
+        id
+        firstName
+        lastName
+        email
+        carMake
+        carModel
+        vinNumber
+        manufacturedDate
+    }
+  }
+`;
+
+export const DELETE_VEHICLE = gql`
+mutation($vehicleId: Int!){
+    deleteVehicle(deleteVehicle:{vehicleId:$vehicleId}){
         id
         firstName
         lastName

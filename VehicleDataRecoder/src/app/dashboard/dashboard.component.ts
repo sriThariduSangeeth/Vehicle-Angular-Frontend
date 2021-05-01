@@ -4,9 +4,10 @@ import { FileUploadService } from '../services/file.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { VehicleAddComponent } from '../vehicle-add/vehicle-add.component';
 import { EditDeletePopupComponent } from '../shared/popup/edit-delete-popup/edit-delete-popup.component';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ import { EditDeletePopupComponent } from '../shared/popup/edit-delete-popup/edit
 export class DashboardComponent implements OnInit, AfterViewInit {
 
   public vehicles: Vehicle[] = [];
-  constructor(private fileUploadService: FileUploadService, public dialog: MatDialog) { }
+  constructor(private fileUploadService: FileUploadService, public dialog: MatDialog) {
+  }
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email',
     'carMake', 'carModel', 'vinNumber', 'manufacturedDate', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Vehicle>();
@@ -49,19 +51,46 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   editVehicle(res: Vehicle) {
+    const dialogConfigs = new MatDialogConfig();
+    dialogConfigs.id = "Edit";
+
     const dialogRef = this.dialog.open(EditDeletePopupComponent, {
       width: '70vw',
       height: '70vh',
-      data: res
+      data: res,
+      disableClose: true,
+      id: "Edit"
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.componentInstance.dialogConfigs = dialogConfigs;
+
+    dialogRef.afterClosed()
+      .pipe(take(1))
+      .subscribe(result => {
+        this.ngOnInit();
+      });
   }
 
   deleteVehicle(res: Vehicle) {
-    console.log(res);
+    const dialogConfigs = new MatDialogConfig();
+    dialogConfigs.id = "Delete";
+    const dialogRef = this.dialog.open(EditDeletePopupComponent, {
+      width: '70vw',
+      height: '70vh',
+      data: res,
+      disableClose: true,
+      id: "Delete"
+    });
+
+    dialogRef.componentInstance.dialogConfigs = dialogConfigs;
+
+    dialogRef.afterClosed()
+      .pipe(take(1))
+      .subscribe(result => {
+        console.log("call");
+
+        this.ngOnInit();
+      });
 
   }
 

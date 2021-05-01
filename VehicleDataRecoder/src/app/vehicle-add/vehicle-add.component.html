@@ -22,7 +22,7 @@
                         <p>
                             <mat-form-field class="form-field" appearance="standard">
                                 <mat-label>First Name</mat-label>
-                                <input matInput required placeholder="Title" [(ngModel)]="vfname">
+                                <input matInput placeholder="First Name" [(ngModel)]="vfname">
                                 <button mat-button *ngIf="vfname" matSuffix mat-icon-button aria-label="Clear" (click)="vfname=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
@@ -33,8 +33,7 @@
                         <p>
                             <mat-form-field class="form-field" appearance="standard">
                                 <mat-label>Last Name</mat-label>
-                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
-                                <input matInput required placeholder="https://www." [(ngModel)]="vlname">
+                                <input matInput placeholder="Last Name" [(ngModel)]="vlname">
                                 <button mat-button *ngIf="vlname" matSuffix mat-icon-button aria-label="Clear" (click)="vlname=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
@@ -42,12 +41,10 @@
                                 <mat-hint>Gutter</mat-hint>
                             </mat-form-field>
                         </p>
-                        ---
                         <p>
                             <mat-form-field class="form-field" appearance="fill">
                                 <mat-label>Email Adress</mat-label>
-                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
-                                <input matInput required placeholder="https://www." [(ngModel)]="vmail">
+                                <input matInput placeholder="name@mail.com" [(ngModel)]="vmail">
                                 <button mat-button *ngIf="vmail" matSuffix mat-icon-button aria-label="Clear" (click)="vmail=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
@@ -57,8 +54,7 @@
                         <p>
                             <mat-form-field class="form-field" appearance="fill">
                                 <mat-label>Vehicle Make</mat-label>
-                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
-                                <input matInput required placeholder="https://www." [(ngModel)]="vmake">
+                                <input matInput [(ngModel)]="vmake">
                                 <button mat-button *ngIf="vmake" matSuffix mat-icon-button aria-label="Clear" (click)="vmake=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
@@ -68,8 +64,7 @@
                         <p>
                             <mat-form-field class="form-field" appearance="fill">
                                 <mat-label>Vehicle Model</mat-label>
-                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
-                                <input matInput required placeholder="https://www." [(ngModel)]="vmodel">
+                                <input matInput [(ngModel)]="vmodel">
                                 <button mat-button *ngIf="vmodel" matSuffix mat-icon-button aria-label="Clear" (click)="vmodel=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
@@ -79,15 +74,13 @@
                         <p>
                             <mat-form-field class="form-field" appearance="fill">
                                 <mat-label>Vehicle Register Number</mat-label>
-                                <!-- <span matPrefix>https://www. &nbsp;</span> -->
-                                <input matInput required placeholder="https://www." [(ngModel)]="vnumber">
+                                <input matInput placeholder="CCC-1234" [(ngModel)]="vnumber">
                                 <button mat-button *ngIf="vnumber" matSuffix mat-icon-button aria-label="Clear" (click)="vnumber=''">
                                     <mat-icon>close</mat-icon>
                                 </button>
                                 <mat-icon matSuffix *ngIf="!vnumber">garage</mat-icon>
                             </mat-form-field>
                         </p>
-                        ---
                         <p>
                             <mat-form-field class="form-field" color="primary" appearance="fill">
                                 <mat-label>Vehicle Manufactured Date</mat-label>

@@ -38,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditDeletePopupComponent } from './shared/popup/edit-delete-popup/edit-delete-popup.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { EditDeletePopupComponent } from './shared/popup/edit-delete-popup/edit-
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [
   ],

@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file.service';
 import * as moment from 'moment';
+import { Vehicle } from '../model/vehicle';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-vehicle-add',
@@ -33,7 +35,8 @@ export class VehicleAddComponent implements OnInit {
   emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
   constructor(private fileUploadService: FileUploadService,
-    private router: Router, private formBuilder: FormBuilder) { }
+    private router: Router, private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
@@ -63,8 +66,26 @@ export class VehicleAddComponent implements OnInit {
 
   submit() {
     const mStartDate = new Date(this.pstartdate);
-    const start = moment(mStartDate).format("YYYY/MM/DD");
+    console.log(mStartDate.getDate);
 
+    const start = moment(mStartDate).format("YYYY-MM-DD");
+    const vehicle: Vehicle = new Vehicle(
+      this.vfname, this.vfname, this.vmail, this.vmake, this.vmodel, this.vnumber, start
+    );
+    this.fileUploadService.addNewVehicle(vehicle)
+      .then(res => {
+        this.clearFeild();
+      });
+  }
+
+  private clearFeild() {
+    this.vfname = '';
+    this.vlname = '';
+    this.vmail = '';
+    this.vmake = '';
+    this.vmodel = '';
+    this.vnumber = '';
+    this.pstartdate = '';
   }
 
   public logout() { }

@@ -83,7 +83,7 @@ mutation(
 	$carMake: String!
 	$carModel: String!
 	$vinNumber: String!
-	$manufacture: String!
+	$manufacturedDate: String!
 ){
     createVehicle(createVehicleData:{
       firstName:$firstName,
@@ -92,7 +92,7 @@ mutation(
       carModel:$carMake,
       carMake:$carModel,
       vinNumber:$vinNumber,
-      manufacture:$manufacture
+      manufacturedDate:$manufacturedDate
     }){
         id
         firstName

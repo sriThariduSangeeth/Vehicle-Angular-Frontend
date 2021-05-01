@@ -75,7 +75,7 @@ export class FileUploadService {
             variables: {
                 "firstName": vehicle.firstName,
                 "lastName": vehicle.lastName,
-                "manufacture": vehicle.manufacturedDate,
+                "manufacturedDate": vehicle.manufacturedDate,
                 "email": vehicle.email,
                 "carMake": vehicle.carMake,
                 "carModel": vehicle.carModel,

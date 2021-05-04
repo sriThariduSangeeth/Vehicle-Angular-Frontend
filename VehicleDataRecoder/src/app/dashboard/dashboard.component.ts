@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Vehicle } from '../model/vehicle';
 import { FileUploadService } from '../services/file.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -17,7 +17,8 @@ import { take } from 'rxjs/operators';
 export class DashboardComponent implements OnInit, AfterViewInit {
 
   public vehicles: Vehicle[] = [];
-  constructor(private fileUploadService: FileUploadService, public dialog: MatDialog) {
+
+  constructor(private fileUploadService: FileUploadService, public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
   }
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email',
     'carMake', 'carModel', 'vinNumber', 'manufacturedDate', 'edit', 'delete'];
@@ -34,6 +35,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.getAllVehicleData();
   }
+
+
 
 
   getAllVehicleData() {
@@ -87,9 +90,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed()
       .pipe(take(1))
       .subscribe(result => {
-        console.log("call");
-
         this.ngOnInit();
+        this.changeDetectorRefs.detectChanges();
       });
 
   }

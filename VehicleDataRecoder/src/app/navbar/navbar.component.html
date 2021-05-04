@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
 
         <mat-toolbar color="primary">
 
@@ -44,7 +45,8 @@
     <mat-sidenav-content class="sidenavcon">
         <mat-toolbar color="primary">
             <mat-toolbar-row>
-                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                    *ngIf="isHandset$ | async">
                     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
                 </button>
 
@@ -57,8 +59,8 @@
 
                         <li>
                             <div class="example-button-container">
-                                <button mat-icon-button aria-label="Example icon button with a home icon">
-                                    <mat-icon>add_alert</mat-icon>
+                                <button mat-icon-button (click)="notify()">
+                                    <mat-icon matBadge="{{notifList.length}}">add_alert</mat-icon>
                                 </button>
                             </div>
                         </li>
@@ -69,7 +71,8 @@
                         </li>
                         <li>
                             <div class="example-button-container">
-                                <button mat-mini-fab [matMenuTriggerFor]="logOut" aria-label="Example icon button with a home icon">
+                                <button mat-mini-fab [matMenuTriggerFor]="logOut"
+                                    aria-label="Example icon button with a home icon">
                                     <mat-icon>face</mat-icon>
                                 </button>
                             </div>

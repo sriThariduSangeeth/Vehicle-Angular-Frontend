@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadService } from '../services/file.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class FileUploaderComponent implements OnInit {
   url: string | any = "";
   files: any[] = [];
 
-  constructor(private fileUploadService: FileUploadService,) { }
+  constructor(private fileUploadService: FileUploadService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -27,11 +28,16 @@ export class FileUploaderComponent implements OnInit {
       this.fileUploadService.upload(formData).subscribe(
         rsp => {
           if (rsp) {
-            this.message = 'Image uploaded successfully';
+            this._snackBar.open("File added into Queue", "OK", {
+              duration: 5 * 1000,
+            });
           }
         },
         error => {
           alert(error.error.data);
+          this._snackBar.open("File added into Queue Failed", "OK", {
+            duration: 5 * 1000,
+          });
         });
     }
 

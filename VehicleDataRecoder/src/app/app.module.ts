@@ -39,6 +39,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditDeletePopupComponent } from './shared/popup/edit-delete-popup/edit-delete-popup.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
+import { FileSocketService } from './services/file-socket.service';
 
 @NgModule({
   declarations: [
@@ -84,8 +86,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatBadgeModule,
   ],
   providers: [
+    FileSocketService
   ],
   bootstrap: [AppComponent]
 })

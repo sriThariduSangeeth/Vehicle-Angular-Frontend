@@ -18,11 +18,13 @@
 <ul>
     <li>CSV data File uploader</li>
     <li>All CRUD operation has implemented</li>
+    <li>Push Notification - <b>Socket-io</b></li>
 </ul>
 
 [![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular 10" height="27">
 <img src="https://jwt.io/img/pic_logo.svg" alt="jet" height="27">
+<img src="https://images.opencollective.com/socketio/050e5eb/logo/256.png" alt="socket.io" height="27">
 [![Build](https://img.shields.io/badge/Build-Passed-green)](https://angular.io/)
 
 <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" alt="Passed" height="28">
@@ -44,7 +46,7 @@
 | test@mail.com | test123	| Tested |
 | dev@mail.com 	| dev123	| Tested |
 
-**About CSV files upload page**
+> About CSV files upload page
 
 <P> This window use for upload .csv and .xlsx files. Before upload CSV file you need to select files from your local machine. You can select multiple files also. You can remove unwanted file that you have already selected. when you press submit all file will save in DataBase (PostgressQL). </P>
 
@@ -55,7 +57,7 @@
 ![](./assest/fil2.png)     |  ![](./assest/fil1.png)    | ![](./assest/fil3.png)
 
 
-**About Dashboard View **
+> About Dashboard View and CRUD UI
 
 <p> This componet use for display every records in DB. after upload .CVS into database this view will show data. as well as user can <b>Edit</b> and <b> Delete</b> each and every records one by one.  </p>
 
@@ -63,4 +65,4 @@
 
 | Dashboard View            |  Edit Vehicle             |  Delete Vehicle         |    Add New Vehicle           |
 :-------------------------:|:--------------------------:|:--------------------------:|:-------------------------:|
-![](./assest/crud1.png)     |  ![](./assest/edit1.png)  | ![](./assest/delete1.png) |![](./assest/edit1.png)   |
+![](./assest/crud1.png)     |  ![](./assest/edit1.png)  | ![](./assest/delete1.png) |![](./assest/add1.png)   |

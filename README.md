@@ -24,7 +24,7 @@
 [![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular 10" height="27">
 <img src="https://jwt.io/img/pic_logo.svg" alt="jet" height="27">
-<img src="https://socket.io/css/images/logo.svg" alt="socket.io" height="27">
+<img src="https://images.opencollective.com/socketio/050e5eb/logo/256.png" alt="socket.io" height="27">
 [![Build](https://img.shields.io/badge/Build-Passed-green)](https://angular.io/)
 
 <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" alt="Passed" height="28">

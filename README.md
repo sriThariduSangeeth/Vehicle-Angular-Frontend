@@ -18,6 +18,7 @@
 <ul>
     <li>CSV data File uploader</li>
     <li>All CRUD operation has implemented</li>
+    <li>Push Notification - <b>Socket-io</b></li>
 </ul>
 
 [![Angular](https://img.shields.io/badge/Angular-11-red)](https://angular.io/)

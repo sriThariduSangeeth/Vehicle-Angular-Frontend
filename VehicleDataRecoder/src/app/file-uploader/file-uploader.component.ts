@@ -11,14 +11,32 @@ export class FileUploaderComponent implements OnInit {
 
   @ViewChild("fileUpload", { static: false }) fileUpload!: ElementRef;
 
+  step = 0;
   message: string | any;
   file!: File;
   url: string | any = "";
   files: any[] = [];
+  vmodel!: string;
+  vage!: string;
 
   constructor(private fileUploadService: FileUploadService, private _snackBar: MatSnackBar) { }
 
+
   ngOnInit(): void {
+  }
+
+
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 
   submit(): void {

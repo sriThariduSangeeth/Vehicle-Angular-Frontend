@@ -41,6 +41,7 @@ import { EditDeletePopupComponent } from './shared/popup/edit-delete-popup/edit-
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FileSocketService } from './services/file-socket.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { FileSocketService } from './services/file-socket.service';
     MatDialogModule,
     MatSnackBarModule,
     MatBadgeModule,
+    MatExpansionModule,
   ],
   providers: [
     FileSocketService

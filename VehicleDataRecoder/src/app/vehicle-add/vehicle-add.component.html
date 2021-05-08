@@ -83,8 +83,8 @@
                         </p>
                         <p>
                             <mat-form-field class="form-field" color="primary" appearance="fill">
-                                <mat-label>Vehicle Manufactured Date</mat-label>
-                                <input matInput required [matDatepicker]="psd" [(ngModel)]="pstartdate">
+                                <mat-label>{{today | date}}</mat-label>
+                                <input matInput [matDatepicker]="psd" [(ngModel)]="pstartdate">
                                 <mat-datepicker-toggle matSuffix [for]="psd"></mat-datepicker-toggle>
                                 <mat-datepicker #psd color="primary"></mat-datepicker>
                                 <mat-hint>YYYY-MM-DD</mat-hint>

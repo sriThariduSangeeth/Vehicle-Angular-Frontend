@@ -1,13 +1,13 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Vehicle } from '../model/vehicle';
 import { FileUploadService } from '../services/file.service';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { VehicleAddComponent } from '../vehicle-add/vehicle-add.component';
 import { EditDeletePopupComponent } from '../shared/popup/edit-delete-popup/edit-delete-popup.component';
 import { take } from 'rxjs/operators';
+import { threadId } from 'node:worker_threads';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +17,10 @@ import { take } from 'rxjs/operators';
 export class DashboardComponent implements OnInit, AfterViewInit {
 
   public vehicles: Vehicle[] = [];
+  public totalVehicleCount: number = 0;
+  public first: number = 10;
+  public offset: number = 0;
+  public resultsLength: number = 0;
 
   constructor(private fileUploadService: FileUploadService, public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
   }
@@ -24,26 +28,27 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     'carMake', 'carModel', 'vinNumber', 'manufacturedDate', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Vehicle>();
 
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  resultsLength = 0;
+
+
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
-    this.getAllVehicleData();
+    this.getAllVehicleData(this.first);
+    this.dataSource.paginator = this.paginator;
   }
 
 
-
-
-  getAllVehicleData() {
-    this.fileUploadService.getAllVehicle().then(
+  getAllVehicleData(first?: number, offset?: number, last?: number) {
+    this.fileUploadService.getAllVehicle(first, offset, last).then(
       res => {
-        this.vehicles = res;
-        this.dataSource.data = res;
+        this.totalVehicleCount = res.totalCount;
+        this.dataSource.data = res.vehicles;
+        console.log(this.totalVehicleCount);
+        console.log(this.vehicles);
       }
     ).catch(
       error => {
@@ -52,6 +57,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }
     );
   }
+
 
   editVehicle(res: Vehicle) {
     const dialogConfigs = new MatDialogConfig();
@@ -70,7 +76,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed()
       .pipe(take(1))
       .subscribe(result => {
-        this.ngOnInit();
+        this.getAllVehicleData(this.first);
       });
   }
 
@@ -90,10 +96,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed()
       .pipe(take(1))
       .subscribe(result => {
-        this.ngOnInit();
+        this.getAllVehicleData(this.first);
         this.changeDetectorRefs.detectChanges();
       });
 
+  }
+
+  handlePageEvent(event: PageEvent) {
+    console.log(event);
+    this.offset = (event.pageIndex * event.pageSize);
+    // this.totalVehicleCount = 10000;
+    this.getAllVehicleData(event.pageSize, this.offset);
   }
 
 }

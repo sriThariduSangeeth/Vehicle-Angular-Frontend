@@ -91,7 +91,7 @@
                             <input matInput (ngModelChange)="onChange()" [disabled]="edit_input" required [matDatepicker]="psd" [(ngModel)]="pstartdate">
                             <mat-datepicker-toggle matSuffix [for]="psd"></mat-datepicker-toggle>
                             <mat-datepicker #psd color="primary"></mat-datepicker>
-                            <mat-hint>YYYY-MM-DD</mat-hint>
+                            <mat-hint>Today date : {{today | date}}</mat-hint>
                         </mat-form-field>
                     </p>
                 </div>

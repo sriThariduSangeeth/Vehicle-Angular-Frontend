@@ -1,6 +1,5 @@
 <mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
 
         <mat-toolbar color="primary">
 
@@ -27,7 +26,7 @@
             <!-- (click)="hidden = true; drawer.close()" -->
             <a mat-list-item routerLink="file" class="nav-item" (click)="hidden = true">
                 <mat-icon aria-hidden="false">record_voice_over</mat-icon>
-                <span style="padding: 10%;"></span> File Uploader
+                <span style="padding: 10%;"></span> File Uploader | Downloader
             </a>
 
             <mat-divider></mat-divider>
@@ -45,8 +44,7 @@
     <mat-sidenav-content class="sidenavcon">
         <mat-toolbar color="primary">
             <mat-toolbar-row>
-                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-                    *ngIf="isHandset$ | async">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
                     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
                 </button>
 
@@ -71,8 +69,7 @@
                         </li>
                         <li>
                             <div class="example-button-container">
-                                <button mat-mini-fab [matMenuTriggerFor]="logOut"
-                                    aria-label="Example icon button with a home icon">
+                                <button mat-mini-fab [matMenuTriggerFor]="logOut" aria-label="Example icon button with a home icon">
                                     <mat-icon>face</mat-icon>
                                 </button>
                             </div>

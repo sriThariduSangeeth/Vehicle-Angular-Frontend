@@ -6,6 +6,7 @@ import { retry } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { ADD_NEW_VEHICLE, DELETE_VEHICLE, GET_ALL_VEHICLE, UPDATE_VEHICLE, Vehicle } from "../model/vehicle";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PaginateVehicle } from "../model/paginate-vehicle";
 
 @Injectable({
     providedIn: 'root'
@@ -29,13 +30,21 @@ export class FileUploadService {
         return this.httpClient.get<any>(`${this.SERVER_URL}/file/test`);
     }
 
-    async getAllVehicle(): Promise<Vehicle[]> {
+    async getAllVehicle(first?: number, offset?: number, last?: number): Promise<PaginateVehicle> {
         const response = await this.client.query({
             query: GET_ALL_VEHICLE,
+            variables: {
+                "first": first,
+                "offser": offset,
+                "last": last,
+            }
         }).then(data => {
-            return data.data.vehicles
+            return data.data.vehicles;
         }).catch(error => {
-            const resVe: Vehicle[] = [];
+            const resVe: PaginateVehicle = {
+                totalCount: 0,
+                vehicles: []
+            };
             return resVe;
         });
         return response;
@@ -105,6 +114,7 @@ export class FileUploadService {
             this._snackBar.open("Delete Vehicle successfully", res.data.deleteVehicle.vinNumber, {
                 duration: 5 * 1000,
             });
+            this.client.resetStore();
             return res.data.deleteVehicle;
         }).catch(error => {
             this._snackBar.open("Vehicle couldn't Delete", error.message, {
@@ -113,6 +123,14 @@ export class FileUploadService {
             return error;
         });
         return response;
+
+        // this.client.resetStore()
+        // this.client.watchQuery()
     }
+
+    // async getAllVehicleCount(): Promise<number>{
+
+    //     return 
+    // }
 
 }

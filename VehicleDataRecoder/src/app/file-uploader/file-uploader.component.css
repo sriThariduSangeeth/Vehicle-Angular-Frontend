@@ -57,22 +57,6 @@
     width: 400px;
 }
 
-.profile-picture {
-    position: relative;
-    z-index: 1;
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    border-radius: 1em;
-}
-
-.profile-picture img {
-    width: 200px;
-    height: 200px;
-    z-index: 2;
-    border-radius: 1em;
-}
-
 .container {
     height: 200px;
     padding: 2rem;
@@ -99,6 +83,10 @@
     border-radius: 21.5px;
     background-color: #db202f;
     padding: 8px 16px;
+}
+
+.items {
+    margin-left: 30px;
 }
 
 .containers .pro-name {
@@ -138,7 +126,7 @@
     justify-content: space-between;
     align-items: center;
     border: dashed 1px #979797;
-    margin-bottom: 1rem;
+    margin: 1rem;
     display: flex;
     flex-grow: 1;
 }
@@ -205,4 +193,22 @@
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
     }
+}
+
+.example-action-buttons {
+    padding-bottom: 20px;
+}
+
+.import-export-cards .mat-expansion-panel-header-title,
+.import-export-cards .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.import-export-cards .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.import-export-cards .mat-form-field+.mat-form-field {
+    margin-left: 8px;
 }

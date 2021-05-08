@@ -1,61 +1,96 @@
 <div class="grid-container">
-    <div fxLayout="row" fxLayoutAlign="center">
-        <mat-card class="dashboard-card">
-            <mat-card-header>
-                <mat-icon>face</mat-icon>
-                <mat-card-title>CSV data file uploader</mat-card-title>
+    <mat-accordion class="import-export-cards" multi>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{"CSV data file uploader" | uppercase}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    upload your file
+                    <mat-icon>drive_folder_upload</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div fxFlex fxLayout="row" fxLayoutGap="20" fxLayoutAlign="space-around center">
+                <div fxFlex="40%" class="file-loader file-selector">
+                    <div class="container row">
 
-                <mat-card-subtitle>Registration</mat-card-subtitle>
-                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-                    <div fxLayoutGap="20px">
-                        <button mat-raised-button (click)="submit()" color="primary" type="submit">Submit</button>
+                        <input type="file" #fileUpload id="fileUpload" multiple (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                        <img src="../../assets/ic-upload-file.svg" alt="">
+                        <h3>To upload</h3>
+                        <label for="fileDropRef">Browse your file</label>
                     </div>
-
                 </div>
-            </mat-card-header>
+                <div fxFlex="60%" class="file-loader">
 
-            <mat-card-content class="dashboard-card-content">
-                <div fxFlex fxLayout="row" fxLayoutGap="20" fxLayoutAlign="space-around center">
-                    <div fxFlex="40%" class="file-loader file-selector">
-                        <div class="container row">
-                            <!-- <div class="col-md-6">
-                                    <input type="file" #fileUpload (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" id="fileUpload" name="fileUpload" multiple="multiple">
-        
-                                </div> -->
-
-                            <input type="file" #fileUpload id="fileUpload" multiple (change)="onFileChanged($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-                            <img src="../../assets/ic-upload-file.svg" alt="">
-                            <h3>Drag and drop file here</h3>
-                            <h3>or</h3>
-                            <label for="fileDropRef">Browse for file</label>
-                        </div>
-                    </div>
-                    <div fxFlex="60%" class="file-loader">
-
-                        <div class="files-list">
-                            <div class="single-file" *ngFor="let file of files; let i = index">
-                                <img src="../../assets/ic-file.svg" width="35px" alt="file">
-                                <div class="info">
-                                    <h4 class="name">
-                                        {{ file?.name }}
-                                    </h4>
-                                    <p class="size">
-                                        {{ formatBytes(file?.size) }}
-                                    </p>
-                                    <app-progress [progress]="file?.progress"></app-progress>
-                                </div>
-                                <img src="../../assets/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+                    <div class="files-list">
+                        <div class="single-file" *ngFor="let file of files; let i = index">
+                            <img src="../../assets/ic-file.svg" width="35px" alt="file">
+                            <div class="info">
+                                <h4 class="name">
+                                    {{ file?.name }}
+                                </h4>
+                                <p class="size">
+                                    {{ formatBytes(file?.size) }}
+                                </p>
+                                <app-progress [progress]="file?.progress"></app-progress>
                             </div>
+                            <img src="../../assets/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
                         </div>
-
                     </div>
 
                 </div>
 
+            </div>
+            <mat-action-row>
+                <button mat-raised-button (click)="submit()" color="primary" type="submit">Submit</button>
+            </mat-action-row>
 
-            </mat-card-content>
+        </mat-expansion-panel>
 
+        <!-- space -->
+        <mat-expansion-panel disabled>
 
-        </mat-card>
-    </div>
+        </mat-expansion-panel>
+
+        <!-- space -->
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{"CSV data file export" | uppercase}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Export your file with custom filters
+                    <mat-icon>downloading</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div fxFlex fxLayout="column" fxLayoutGap="20" fxLayoutAlign="space-around" class="items">
+                <div>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Car Model</mat-label>
+                        <input matInput [(ngModel)]="vmodel">
+                        <button mat-button *ngIf="vmodel" matSuffix mat-icon-button aria-label="Clear" (click)="vmodel=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-icon matSuffix *ngIf="!vmodel">airport_shuttle</mat-icon>
+                        <mat-hint>Toyota , Nissan , etc.</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Vehicle Age</mat-label>
+                        <input type="number" matInput [(ngModel)]="vage">
+                        <button mat-button *ngIf="vage" matSuffix mat-icon-button aria-label="Clear" (click)="vage=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-icon matSuffix *ngIf="!vage">schedule</mat-icon>
+                        <mat-hint>Years</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

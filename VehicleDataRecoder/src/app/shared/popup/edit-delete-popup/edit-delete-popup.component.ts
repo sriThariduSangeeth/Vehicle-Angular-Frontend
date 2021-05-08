@@ -28,6 +28,7 @@ export class EditDeletePopupComponent implements OnInit {
   vmodel = '';
   vnumber = '';
   pstartdate!: string;
+  today: number = Date.now();
 
   edit_btn: boolean = true;
   edit_input: boolean = false;
